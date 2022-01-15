@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+            font-family:'Roboto', sans-sarif;
+            margin: 0;
+        }
+        p{
+            background-color: #fff ;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            height: 70px;
+            width: 200px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <p id="countdown">10:00</p>
+</body>
+
+</html>
+<script>
+    const startingMinutes=10;
+let time=startingMinutes*60;
+const countdownEl= document.getElementById('countdown');
+setInterval(updateCountdown,1000);
+function updateCountdown(){
+    const minutes= Math.floor(time/60);
+    let seconds=time%60;
+    seconds=seconds<10 ? '0'+seconds:seconds;
+    countdownEl.innerHTML=`${minutes}: ${seconds}`;
+    time--
+}
+</script>
